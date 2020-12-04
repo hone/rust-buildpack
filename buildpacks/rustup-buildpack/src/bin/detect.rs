@@ -1,4 +1,4 @@
-use rust_buildpack::{
+use libcnb_rs::{
     build_plan::{BuildPlan, Provide},
     detect::Detect,
 };

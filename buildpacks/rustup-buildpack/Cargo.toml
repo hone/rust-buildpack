@@ -1,0 +1,10 @@
+[package]
+name = "rustup-buildpack"
+version = "0.1.0"
+authors = ["Terence Lee <hone02@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+libcnb-rs = { path = "../../libcnb-rs" }
+toml = "0.5"

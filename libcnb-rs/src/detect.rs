@@ -27,7 +27,7 @@ impl Detect {
         }
     }
 
-    pub fn write_buildplan(&self, build_plan: &BuildPlan) -> anyhow::Result<()> {
+    pub fn write_buildplan(&self, build_plan: &BuildPlan) -> Result<(), crate::error::Error> {
         fs::write(&self.build_plan_path, toml::to_string(build_plan)?)?;
 
         Ok(())
