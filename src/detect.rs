@@ -1,5 +1,5 @@
 use crate::build_plan::BuildPlan;
-use std::{env::Args, fs, path::PathBuf, process};
+use std::{fs, path::PathBuf, process};
 
 const PASS_EXIT_CODE: i32 = 0;
 const FAIL_EXIT_CODE: i32 = 100;
@@ -20,7 +20,7 @@ impl Detect {
         }
     }
 
-    pub fn from_args(mut args: Args) -> Option<Self> {
+    pub fn from_args(mut args: impl Iterator<Item = String>) -> Option<Self> {
         match (args.next(), args.next()) {
             (Some(platform), Some(build_plan)) => Some(Self::new(platform, build_plan)),
             _ => None,
