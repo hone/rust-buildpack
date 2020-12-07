@@ -1,16 +1,12 @@
 [package]
-name = "rustup-buildpack"
+name = "cargo-buildpack"
 version = "0.1.0"
 authors = ["Terence Lee <hone02@gmail.com>"]
 edition = "2018"
 
 [[bin]]
-name = "rustup-detect"
+name = "cargo-detect"
 path = "src/bin/detect.rs"
-
-[[bin]]
-name = "rustup-build"
-path = "src/bin/builder.rs"
 
 [dependencies]
 anyhow = "1.0"

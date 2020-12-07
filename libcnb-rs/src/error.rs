@@ -6,4 +6,6 @@ pub enum Error {
     Io(#[from] std::io::Error),
     #[error("Problem Serializing TOML: {0}")]
     TomlSerialize(#[from] toml::ser::Error),
+    #[error("Problem Deserializing TOML: {0}")]
+    TomlDeserialize(#[from] toml::de::Error),
 }

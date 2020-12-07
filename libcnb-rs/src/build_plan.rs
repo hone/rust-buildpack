@@ -1,10 +1,12 @@
 use serde::Serialize;
+use toml::value::Table;
 
 /// Build Plan (TOML)
 #[derive(Serialize)]
 pub struct BuildPlan {
     pub provides: Vec<Provide>,
     pub requires: Vec<Require>,
+    pub or: Vec<Or>,
 }
 
 impl BuildPlan {
@@ -12,6 +14,7 @@ impl BuildPlan {
         BuildPlan {
             provides: Vec::new(),
             requires: Vec::new(),
+            or: Vec::new(),
         }
     }
 }
@@ -30,7 +33,16 @@ impl Provide {
 #[derive(Serialize)]
 pub struct Require {
     name: String,
-    metadata: toml::value::Table,
+    metadata: Table,
+}
+
+impl Require {
+    pub fn new(name: impl Into<String>) -> Self {
+        Require {
+            name: name.into(),
+            metadata: Table::new(),
+        }
+    }
 }
 
 #[derive(Serialize)]
